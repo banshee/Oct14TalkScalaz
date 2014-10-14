@@ -1,0 +1,9 @@
+{
+  "!name": "mylibrary",
+  "!define": {
+    "point": {
+      "x": "number",
+      "y": "number"
+    }
+  }
+}

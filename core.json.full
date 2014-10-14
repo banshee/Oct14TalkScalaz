@@ -1,0 +1,4381 @@
+{
+    "!name": "core",
+    "!define": {
+    },
+    "adsk": {
+        "terminate": {
+            "!type": "fn()"
+        },
+
+        "core": {
+            "Base": {
+                "!doc": "Base class for all API types",
+                "interfaceId": {
+                    "!type": "string"
+                },
+                "prototype": {
+                    "equals": {
+                        "!type": "fn(object: ?) -> boolean"
+                    }
+                }
+            },
+
+            "Appearance": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Appearance",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Appearance"
+                    },
+                    "prototype": {
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "isUsed" : {
+                            "!type" : "boolean"
+                        },
+                        "usedBy" : {
+                            "!type" : "+adsk.core.ObjectCollection"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "parent" : {
+                            "!type" : "+adsk.core.Base"
+                        },
+                        "hasTexture" : {
+                            "!type" : "boolean"
+                        },
+                        "appearanceProperties" : {
+                            "!type" : "+adsk.core.Properties"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "copyTo" : {
+                            "!type" : "fn(target: +adsk.core.Base) -> boolean"
+                        }
+                    }
+            },
+
+            "Appearances": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Appearances",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Appearances"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Appearance"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.Appearance"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Appearance"
+                        }
+                    }
+            },
+
+            "AppearanceSourceTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.AppearanceSourceTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.AppearanceSourceTypes"
+                    }
+            },
+
+            "AppearanceTexture": {
+                    "!type": "fn(handle: ?) -> + adsk.core.AppearanceTexture",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.AppearanceTexture"
+                    },
+                    "prototype": {
+                        "properties" : {
+                            "!type" : "+adsk.core.Properties"
+                        },
+                        "textureType" : {
+                            "!type" : "number"
+                        },
+                        "changeTextureImage" : {
+                            "!type" : "fn(imageFilename: string) -> boolean"
+                        }
+                    }
+            },
+
+            "Application": {
+                    "get" : {
+                        "!type" : "fn() -> +adsk.core.Application"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Application",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Application"
+                    },
+                    "prototype": {
+                        "documents" : {
+                            "!type" : "+adsk.core.Documents"
+                        },
+                        "activeDocument" : {
+                            "!type" : "+adsk.core.Document"
+                        },
+                        "activeProduct" : {
+                            "!type" : "+adsk.core.Product"
+                        },
+                        "activeViewport" : {
+                            "!type" : "+adsk.core.Viewport"
+                        },
+                        "activeEditObject" : {
+                            "!type" : "+adsk.core.Base"
+                        },
+                        "pointTolerance" : {
+                            "!type" : "number"
+                        },
+                        "preferences" : {
+                            "!type" : "+adsk.core.Preferences"
+                        },
+                        "vectorAngleTolerance" : {
+                            "!type" : "number"
+                        },
+                        "documentOpening" : {
+                            "!type" : "+adsk.core.DocumentEvent"
+                        },
+                        "documentOpened" : {
+                            "!type" : "+adsk.core.DocumentEvent"
+                        },
+                        "scripts" : {
+                            "!type" : "+adsk.core.Scripts"
+                        },
+                        "userInterface" : {
+                            "!type" : "+adsk.core.UserInterface"
+                        },
+                        "materialLibraries" : {
+                            "!type" : "+adsk.core.MaterialLibraries"
+                        },
+                        "favoriteMaterials" : {
+                            "!type" : "+adsk.core.FavoriteMaterials"
+                        },
+                        "favoriteAppearances" : {
+                            "!type" : "+adsk.core.FavoriteAppearances"
+                        },
+                        "getLastError" : {
+                            "!type" : "fn(description?: object) -> number"
+                        }
+                    }
+            },
+
+            "BoundingBox2D": {
+                    "create" : {
+                        "!type" : "fn(minPoint: +adsk.core.Point2D, maxPoint: +adsk.core.Point2D) -> +adsk.core.BoundingBox2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.BoundingBox2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.BoundingBox2D"
+                    },
+                    "prototype": {
+                        "minPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "maxPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "contains" : {
+                            "!type" : "fn(point: +adsk.core.Point2D) -> boolean"
+                        },
+                        "expand" : {
+                            "!type" : "fn(point: +adsk.core.Point2D) -> boolean"
+                        },
+                        "intersects" : {
+                            "!type" : "fn(boundingBox: +adsk.core.BoundingBox2D) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.BoundingBox2D"
+                        }
+                    }
+            },
+
+            "BoundingBox3D": {
+                    "create" : {
+                        "!type" : "fn(minPoint: +adsk.core.Point3D, maxPoint: +adsk.core.Point3D) -> +adsk.core.BoundingBox3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.BoundingBox3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.BoundingBox3D"
+                    },
+                    "prototype": {
+                        "minPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "maxPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "contains" : {
+                            "!type" : "fn(point: +adsk.core.Point3D) -> boolean"
+                        },
+                        "expand" : {
+                            "!type" : "fn(point: +adsk.core.Point3D) -> boolean"
+                        },
+                        "intersects" : {
+                            "!type" : "fn(boundingBox: +adsk.core.BoundingBox3D) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.BoundingBox3D"
+                        }
+                    }
+            },
+
+            "Camera": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Camera",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Camera"
+                    },
+                    "prototype": {
+                        "eye" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "target" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "cameraType" : {
+                            "!type" : "number"
+                        },
+                        "perspectiveAngle" : {
+                            "!type" : "number"
+                        },
+                        "upVector" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "viewExtents" : {
+                            "!type" : "number"
+                        },
+                        "isFitView" : {
+                            "!type" : "boolean"
+                        },
+                        "viewOrientation" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "CameraTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CameraTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CameraTypes"
+                    }
+            },
+
+            "CloseError": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CloseError",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CloseError"
+                    }
+            },
+
+            "Color": {
+                    "create" : {
+                        "!type" : "fn(red: number, green: number, blue: number, opacity: number) -> +adsk.core.Color"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Color",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Color"
+                    },
+                    "prototype": {
+                        "red" : {
+                            "!type" : "number"
+                        },
+                        "green" : {
+                            "!type" : "number"
+                        },
+                        "blue" : {
+                            "!type" : "number"
+                        },
+                        "opacity" : {
+                            "!type" : "number"
+                        },
+                        "getColor" : {
+                            "!type" : "fn(red: object, green: object, blue: object, opacity: object) -> boolean"
+                        },
+                        "setColor" : {
+                            "!type" : "fn(red: number, green: number, blue: number, opacity: number) -> boolean"
+                        }
+                    }
+            },
+
+            "Command": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Command",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Command"
+                    },
+                    "prototype": {
+                        "parentCommandDefinition" : {
+                            "!type" : "+adsk.core.CommandDefinition"
+                        },
+                        "activate" : {
+                            "!type" : "+adsk.core.CommandEvent"
+                        },
+                        "deactivate" : {
+                            "!type" : "+adsk.core.CommandEvent"
+                        },
+                        "destroy" : {
+                            "!type" : "+adsk.core.CommandEvent"
+                        },
+                        "execute" : {
+                            "!type" : "+adsk.core.CommandEvent"
+                        },
+                        "commandInputs" : {
+                            "!type" : "+adsk.core.CommandInputs"
+                        },
+                        "inputChanged" : {
+                            "!type" : "+adsk.core.InputChangedEvent"
+                        },
+                        "validateInputs" : {
+                            "!type" : "+adsk.core.ValidateInputsEvent"
+                        },
+                        "keyDown" : {
+                            "!type" : "+adsk.core.KeyboardEvent"
+                        },
+                        "keyUp" : {
+                            "!type" : "+adsk.core.KeyboardEvent"
+                        },
+                        "mouseClick" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseDoubleClick" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseDown" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseMove" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseUp" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseWheel" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseDragBegin" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseDrag" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        },
+                        "mouseDragEnd" : {
+                            "!type" : "+adsk.core.MouseEvent"
+                        }
+                    }
+            },
+
+            "CommandDefinition": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandDefinition",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandDefinition"
+                    },
+                    "prototype": {
+                        "commandCreated" : {
+                            "!type" : "+adsk.core.CommandCreatedEvent"
+                        },
+                        "isNative" : {
+                            "!type" : "boolean"
+                        },
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "toolClipFilename" : {
+                            "!type" : "string"
+                        },
+                        "tooltip" : {
+                            "!type" : "string"
+                        },
+                        "tooltipDescription" : {
+                            "!type" : "string"
+                        },
+                        "resourceFolder" : {
+                            "!type" : "string"
+                        },
+                        "controlDefinition" : {
+                            "!type" : "+adsk.core.ControlDefinition"
+                        },
+                        "execute" : {
+                            "!type" : "fn(input?: +adsk.core.NamedValues) -> boolean"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "CommandDefinitions": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandDefinitions",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandDefinitions"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "addButtonDefinition" : {
+                            "!type" : "fn(id: string, name: string, tooltip: string, resourceFolder: string) -> +adsk.core.CommandDefinition"
+                        },
+                        "addCheckBoxDefinition" : {
+                            "!type" : "fn(id: string, name: string, tooltip: string, isChecked: boolean) -> +adsk.core.CommandDefinition"
+                        },
+                        "addListDefinition" : {
+                            "!type" : "fn(id: string, name: string, resourceFolder: string, listControlDisplayType: number) -> +adsk.core.CommandDefinition"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.CommandDefinition"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.CommandDefinition"
+                        }
+                    }
+            },
+
+            "CommandInput": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandInput"
+                    },
+                    "prototype": {
+                        "commandInputs" : {
+                            "!type" : "+adsk.core.CommandInputs"
+                        },
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "isEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "isVisible" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "CommandInputs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandInputs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandInputs"
+                    },
+                    "prototype": {
+                        "command" : {
+                            "!type" : "+adsk.core.Command"
+                        },
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.CommandInput"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.CommandInput"
+                        },
+                        "addValueInput" : {
+                            "!type" : "fn(id: string, name: string, unitType: string, initialValue: +adsk.core.ValueInput) -> +adsk.core.ValueCommandInput"
+                        },
+                        "addBoolValueInput" : {
+                            "!type" : "fn(id: string, name: string, isCheckBox: boolean, resourceFolder: string, initialValue: boolean) -> +adsk.core.BoolValueCommandInput"
+                        },
+                        "addStringValueInput" : {
+                            "!type" : "fn(id: string, name: string, initialValue: string) -> +adsk.core.StringValueCommandInput"
+                        },
+                        "addSelectionInput" : {
+                            "!type" : "fn(id: string, name: string, commandPrompt: string) -> +adsk.core.SelectionCommandInput"
+                        }
+                    }
+            },
+
+            "ControlDefinition": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ControlDefinition",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ControlDefinition"
+                    },
+                    "prototype": {
+                        "isEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "isVisible" : {
+                            "!type" : "boolean"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "Curve2D": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Curve2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Curve2D"
+                    },
+                    "prototype": {
+                        "curveType" : {
+                            "!type" : "number"
+                        },
+                        "evaluator" : {
+                            "!type" : "+adsk.core.CurveEvaluator2D"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix2D) -> boolean"
+                        }
+                    }
+            },
+
+            "Curve2DTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Curve2DTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Curve2DTypes"
+                    }
+            },
+
+            "Curve3D": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Curve3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Curve3D"
+                    },
+                    "prototype": {
+                        "curveType" : {
+                            "!type" : "number"
+                        },
+                        "evaluator" : {
+                            "!type" : "+adsk.core.CurveEvaluator3D"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        }
+                    }
+            },
+
+            "Curve3DTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Curve3DTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Curve3DTypes"
+                    }
+            },
+
+            "CurveEvaluator2D": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CurveEvaluator2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CurveEvaluator2D"
+                    },
+                    "prototype": {
+                        "getCurvatures" : {
+                            "!type" : "fn(parameters: [number], directions: object, curvatures: object) -> boolean"
+                        },
+                        "getCurvature" : {
+                            "!type" : "fn(parameter: number, direction: object, curvature: object) -> boolean"
+                        },
+                        "getTangents" : {
+                            "!type" : "fn(parameters: [number], tangents: object) -> boolean"
+                        },
+                        "getTangent" : {
+                            "!type" : "fn(parameter: number, tangent: object) -> boolean"
+                        },
+                        "getEndPoints" : {
+                            "!type" : "fn(startPoint: object, endPoint: object) -> boolean"
+                        },
+                        "getLengthAtParameter" : {
+                            "!type" : "fn(fromParameter: number, toParameter: number, length: object) -> boolean"
+                        },
+                        "getParameterAtLength" : {
+                            "!type" : "fn(fromParameter: number, length: number, parameter: object) -> boolean"
+                        },
+                        "getParametersAtPoints" : {
+                            "!type" : "fn(points: [+adsk.core.Point2D], parameters: object) -> boolean"
+                        },
+                        "getParameterAtPoint" : {
+                            "!type" : "fn(point: +adsk.core.Point2D, parameter: object) -> boolean"
+                        },
+                        "getParameterExtents" : {
+                            "!type" : "fn(startParameter: object, endParameter: object) -> boolean"
+                        },
+                        "getPointsAtParameters" : {
+                            "!type" : "fn(parameters: [number], points: object) -> boolean"
+                        },
+                        "getPointAtParameter" : {
+                            "!type" : "fn(parameter: number, point: object) -> boolean"
+                        },
+                        "getFirstDerivatives" : {
+                            "!type" : "fn(parameters: [number], firstDerivatives: object) -> boolean"
+                        },
+                        "getFirstDerivative" : {
+                            "!type" : "fn(parameter: number, firstDerivative: object) -> boolean"
+                        },
+                        "getSecondDerivatives" : {
+                            "!type" : "fn(parameters: [number], secondDerivatives: object) -> boolean"
+                        },
+                        "getSecondDerivative" : {
+                            "!type" : "fn(parameter: number, secondDerivative: object) -> boolean"
+                        },
+                        "getThirdDerivatives" : {
+                            "!type" : "fn(parameters: [number], thirdDerivatives: object) -> boolean"
+                        },
+                        "getThirdDerivative" : {
+                            "!type" : "fn(parameter: number, thirdDerivative: object) -> boolean"
+                        },
+                        "getStrokes" : {
+                            "!type" : "fn(fromParameter: number, toParameter: number, tolerance: number, vertexCoordinates: object) -> boolean"
+                        }
+                    }
+            },
+
+            "CurveEvaluator3D": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CurveEvaluator3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CurveEvaluator3D"
+                    },
+                    "prototype": {
+                        "getCurvatures" : {
+                            "!type" : "fn(parameters: [number], directions: object, curvatures: object) -> boolean"
+                        },
+                        "getCurvature" : {
+                            "!type" : "fn(parameter: number, direction: object, curvature: object) -> boolean"
+                        },
+                        "getEndPoints" : {
+                            "!type" : "fn(startPoint: object, endPoint: object) -> boolean"
+                        },
+                        "getLengthAtParameter" : {
+                            "!type" : "fn(fromParameter: number, toParameter: number, length: object) -> boolean"
+                        },
+                        "getParameterAtLength" : {
+                            "!type" : "fn(fromParameter: number, length: number, parameter: object) -> boolean"
+                        },
+                        "getParametersAtPoints" : {
+                            "!type" : "fn(points: [+adsk.core.Point3D], parameters: object) -> boolean"
+                        },
+                        "getParameterAtPoint" : {
+                            "!type" : "fn(point: +adsk.core.Point3D, parameter: object) -> boolean"
+                        },
+                        "getParameterExtents" : {
+                            "!type" : "fn(startParameter: object, endParameter: object) -> boolean"
+                        },
+                        "getPointsAtParameters" : {
+                            "!type" : "fn(parameters: [number], points: object) -> boolean"
+                        },
+                        "getPointAtParameter" : {
+                            "!type" : "fn(parameter: number, point: object) -> boolean"
+                        },
+                        "getFirstDerivatives" : {
+                            "!type" : "fn(parameters: [number], firstDerivatives: object) -> boolean"
+                        },
+                        "getFirstDerivative" : {
+                            "!type" : "fn(parameter: number, firstDerivative: object) -> boolean"
+                        },
+                        "getSecondDerivatives" : {
+                            "!type" : "fn(parameters: [number], secondDerivatives: object) -> boolean"
+                        },
+                        "getSecondDerivative" : {
+                            "!type" : "fn(parameter: number, secondDerivative: object) -> boolean"
+                        },
+                        "getThirdDerivatives" : {
+                            "!type" : "fn(parameters: [number], thirdDerivatives: object) -> boolean"
+                        },
+                        "getThirdDerivative" : {
+                            "!type" : "fn(parameter: number, thirdDerivative: object) -> boolean"
+                        },
+                        "getStrokes" : {
+                            "!type" : "fn(fromParameter: number, toParameter: number, tolerance: number, vertexCoordinates: object) -> boolean"
+                        },
+                        "getTangents" : {
+                            "!type" : "fn(parameters: [number], tangents: object) -> boolean"
+                        },
+                        "getTangent" : {
+                            "!type" : "fn(parameter: number, tangent: object) -> boolean"
+                        }
+                    }
+            },
+
+            "DefaultModelingOrientations": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DefaultModelingOrientations",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DefaultModelingOrientations"
+                    }
+            },
+
+            "DefaultOrbits": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DefaultOrbits",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DefaultOrbits"
+                    }
+            },
+
+            "DefaultUnitsPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DefaultUnitsPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DefaultUnitsPreferences"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "DefaultUnitsPreferencesCollection": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DefaultUnitsPreferencesCollection",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DefaultUnitsPreferencesCollection"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.DefaultUnitsPreferences"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.DefaultUnitsPreferences"
+                        }
+                    }
+            },
+
+            "DegradedSelectionDisplayStyles": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DegradedSelectionDisplayStyles",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DegradedSelectionDisplayStyles"
+                    }
+            },
+
+            "DegreeDisplayFormats": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DegreeDisplayFormats",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DegreeDisplayFormats"
+                    }
+            },
+
+            "DialogResults": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DialogResults",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DialogResults"
+                    }
+            },
+
+            "Document": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Document",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Document"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "isModified" : {
+                            "!type" : "boolean"
+                        },
+                        "products" : {
+                            "!type" : "+adsk.core.Products"
+                        },
+                        "parent" : {
+                            "!type" : "+adsk.core.Application"
+                        },
+                        "activate" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "Documents": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Documents",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Documents"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Document"
+                        }
+                    }
+            },
+
+            "Event": {
+            },
+
+            "EventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.EventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.EventArgs"
+                    },
+                    "prototype": {
+                        "firingEvent" : {
+                            "!type" : "+adsk.core.Event"
+                        }
+                    }
+            },
+
+            "FavoriteAppearances": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FavoriteAppearances",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FavoriteAppearances"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Appearance"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.Appearance"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Appearance"
+                        }
+                    }
+            },
+
+            "FavoriteMaterials": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FavoriteMaterials",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FavoriteMaterials"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Material"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.Material"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Material"
+                        }
+                    }
+            },
+
+            "FileDialog": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FileDialog",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FileDialog"
+                    },
+                    "prototype": {
+                        "title" : {
+                            "!type" : "string"
+                        },
+                        "filename" : {
+                            "!type" : "string"
+                        },
+                        "filenames" : {
+                            "!type" : "[string]"
+                        },
+                        "filter" : {
+                            "!type" : "string"
+                        },
+                        "filterIndex" : {
+                            "!type" : "number"
+                        },
+                        "initialDirectory" : {
+                            "!type" : "string"
+                        },
+                        "isMultiSelectEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "showOpen" : {
+                            "!type" : "fn() -> number"
+                        },
+                        "showSave" : {
+                            "!type" : "fn() -> number"
+                        }
+                    }
+            },
+
+            "FootAndInchDisplayFormats": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FootAndInchDisplayFormats",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FootAndInchDisplayFormats"
+                    }
+            },
+
+            "GeneralPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.GeneralPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.GeneralPreferences"
+                    },
+                    "prototype": {
+                        "userLanguage" : {
+                            "!type" : "number"
+                        },
+                        "offlineCachePeriod" : {
+                            "!type" : "number"
+                        },
+                        "graphicsDriver" : {
+                            "!type" : "number"
+                        },
+                        "isAutomaticSaveOnCloseEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "isAutomaticVersioningEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "automateVersioningTimeInterval" : {
+                            "!type" : "number"
+                        },
+                        "defaultModelingOrientation" : {
+                            "!type" : "number"
+                        },
+                        "areTooltipsShown" : {
+                            "!type" : "boolean"
+                        },
+                        "isCommandPromptShown" : {
+                            "!type" : "boolean"
+                        },
+                        "areTipsAndTricksShown" : {
+                            "!type" : "boolean"
+                        },
+                        "areInCommandErrorsAndWarningsShown" : {
+                            "!type" : "boolean"
+                        },
+                        "areAutodesk360NotificationsShown" : {
+                            "!type" : "boolean"
+                        },
+                        "isGestureBasedViewNavigationUsed" : {
+                            "!type" : "boolean"
+                        },
+                        "isZoomDirectionReversed" : {
+                            "!type" : "boolean"
+                        },
+                        "isCameraPivotEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "defaultOrbit" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "GenericErrors": {
+                    "!type": "fn(handle: ?) -> + adsk.core.GenericErrors",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.GenericErrors"
+                    }
+            },
+
+            "GraphicsDrivers": {
+                    "!type": "fn(handle: ?) -> + adsk.core.GraphicsDrivers",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.GraphicsDrivers"
+                    }
+            },
+
+            "GraphicsPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.GraphicsPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.GraphicsPreferences"
+                    },
+                    "prototype": {
+                        "minimumFramesPerSecond" : {
+                            "!type" : "number"
+                        },
+                        "selectionDisplayStyle" : {
+                            "!type" : "number"
+                        },
+                        "degradedSelectionDisplayStyle" : {
+                            "!type" : "number"
+                        },
+                        "transparencyEffects" : {
+                            "!type" : "number"
+                        },
+                        "hiddenEdgeDimming" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "GridPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.GridPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.GridPreferences"
+                    },
+                    "prototype": {
+                        "isLayoutGridLockEnabled" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "KeyboardModifiers": {
+                    "!type": "fn(handle: ?) -> + adsk.core.KeyboardModifiers",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.KeyboardModifiers"
+                    }
+            },
+
+            "KeyCodes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.KeyCodes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.KeyCodes"
+                    }
+            },
+
+            "ListControlDisplayTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ListControlDisplayTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ListControlDisplayTypes"
+                    }
+            },
+
+            "ListControlItem": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ListControlItem",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ListControlItem"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "icon" : {
+                            "!type" : "string"
+                        },
+                        "isSelected" : {
+                            "!type" : "boolean"
+                        },
+                        "index" : {
+                            "!type" : "number"
+                        },
+                        "parentListControl" : {
+                            "!type" : "+adsk.core.ListControlDefinition"
+                        },
+                        "isSeperator" : {
+                            "!type" : "boolean"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "ListControlItems": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ListControlItems",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ListControlItems"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "add" : {
+                            "!type" : "fn(name: string, isSelected: boolean, icon: string, beforeIndex?: number) -> +adsk.core.ListControlItem"
+                        },
+                        "addSeperator" : {
+                            "!type" : "fn(beforeIndex: number) -> +adsk.core.ListControlItem"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.ListControlItem"
+                        }
+                    }
+            },
+
+            "Material": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Material",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Material"
+                    },
+                    "prototype": {
+                        "appearance" : {
+                            "!type" : "+adsk.core.Appearance"
+                        },
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "isUsed" : {
+                            "!type" : "boolean"
+                        },
+                        "materialProperties" : {
+                            "!type" : "+adsk.core.Properties"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "parent" : {
+                            "!type" : "+adsk.core.Base"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "copyTo" : {
+                            "!type" : "fn(target: +adsk.core.Base) -> +adsk.core.Material"
+                        }
+                    }
+            },
+
+            "MaterialDisplayUnits": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MaterialDisplayUnits",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MaterialDisplayUnits"
+                    }
+            },
+
+            "MaterialLibraries": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MaterialLibraries",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MaterialLibraries"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.MaterialLibrary"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.MaterialLibrary"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.MaterialLibrary"
+                        }
+                    }
+            },
+
+            "MaterialLibrary": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MaterialLibrary",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MaterialLibrary"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "appearances" : {
+                            "!type" : "+adsk.core.Appearances"
+                        },
+                        "materials" : {
+                            "!type" : "+adsk.core.Materials"
+                        }
+                    }
+            },
+
+            "MaterialPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MaterialPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MaterialPreferences"
+                    },
+                    "prototype": {
+                        "defaultMaterial" : {
+                            "!type" : "+adsk.core.Material"
+                        },
+                        "appearanceOverride" : {
+                            "!type" : "+adsk.core.Appearance"
+                        }
+                    }
+            },
+
+            "Materials": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Materials",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Materials"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Material"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.Material"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Material"
+                        }
+                    }
+            },
+
+            "Matrix2D": {
+                    "create" : {
+                        "!type" : "fn() -> +adsk.core.Matrix2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Matrix2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Matrix2D"
+                    },
+                    "prototype": {
+                        "determinant" : {
+                            "!type" : "number"
+                        },
+                        "setToIdentity" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "invert" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Matrix2D"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix2D) -> boolean"
+                        },
+                        "getCell" : {
+                            "!type" : "fn(row: number, column: number) -> number"
+                        },
+                        "setCell" : {
+                            "!type" : "fn(row: number, column: number, value: number) -> boolean"
+                        },
+                        "getAsCoordinateSystem" : {
+                            "!type" : "fn(origin: object, xAxis: object, yAxis: object)"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "setWithCoordinateSystem" : {
+                            "!type" : "fn(origin: +adsk.core.Point2D, xAxis: +adsk.core.Vector2D, yAxis: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(cells: [number]) -> boolean"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix2D) -> boolean"
+                        },
+                        "setToAlignCoordinateSystems" : {
+                            "!type" : "fn(fromOrigin: +adsk.core.Point2D, fromXAxis: +adsk.core.Vector2D, fromYAxis: +adsk.core.Vector2D, toOrigin: +adsk.core.Point2D, toXAxis: +adsk.core.Vector2D, toYAxis: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "setToRotateTo" : {
+                            "!type" : "fn(from: +adsk.core.Vector2D, to: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "setToRotation" : {
+                            "!type" : "fn(angle: number, origin: +adsk.core.Point2D) -> boolean"
+                        }
+                    }
+            },
+
+            "Matrix3D": {
+                    "create" : {
+                        "!type" : "fn() -> +adsk.core.Matrix3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Matrix3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Matrix3D"
+                    },
+                    "prototype": {
+                        "determinant" : {
+                            "!type" : "number"
+                        },
+                        "translation" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "setToIdentity" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "invert" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Matrix3D"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        },
+                        "getAsCoordinateSystem" : {
+                            "!type" : "fn(origin: object, xAxis: object, yAxis: object, zAxis: object)"
+                        },
+                        "setWithCoordinateSystem" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, xAxis: +adsk.core.Vector3D, yAxis: +adsk.core.Vector3D, zAxis: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "getCell" : {
+                            "!type" : "fn(row: number, column: number) -> number"
+                        },
+                        "setCell" : {
+                            "!type" : "fn(row: number, column: number, value: number) -> boolean"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(cells: [number]) -> boolean"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        },
+                        "setToAlignCoordinateSystems" : {
+                            "!type" : "fn(fromOrigin: +adsk.core.Point3D, fromXAxis: +adsk.core.Vector3D, fromYAxis: +adsk.core.Vector3D, fromZAxis: +adsk.core.Vector3D, toOrigin: +adsk.core.Point3D, toXAxis: +adsk.core.Vector3D, toYAxis: +adsk.core.Vector3D, toZAxis: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "setToRotateTo" : {
+                            "!type" : "fn(from: +adsk.core.Vector3D, to: +adsk.core.Vector3D, axis: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "setToRotation" : {
+                            "!type" : "fn(angle: number, axis: +adsk.core.Vector3D, origin: +adsk.core.Point3D) -> boolean"
+                        }
+                    }
+            },
+
+            "MessageBoxButtonTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MessageBoxButtonTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MessageBoxButtonTypes"
+                    }
+            },
+
+            "MessageBoxIconTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MessageBoxIconTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MessageBoxIconTypes"
+                    }
+            },
+
+            "MouseButtons": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MouseButtons",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MouseButtons"
+                    }
+            },
+
+            "NamedValues": {
+                    "create" : {
+                        "!type" : "fn() -> +adsk.core.NamedValues"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.NamedValues",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NamedValues"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "add" : {
+                            "!type" : "fn(name: string, value: +adsk.core.ValueInput) -> boolean"
+                        },
+                        "getByIndex" : {
+                            "!type" : "fn(index: number, name: object, value: object) -> boolean"
+                        },
+                        "getValueByName" : {
+                            "!type" : "fn(name: string, value: object) -> boolean"
+                        }
+                    }
+            },
+
+            "NetworkPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.NetworkPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NetworkPreferences"
+                    },
+                    "prototype": {
+                        "networkProxySetting" : {
+                            "!type" : "number"
+                        },
+                        "proxyHost" : {
+                            "!type" : "string"
+                        },
+                        "proxyPort" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "NetworkProxySettings": {
+                    "!type": "fn(handle: ?) -> + adsk.core.NetworkProxySettings",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NetworkProxySettings"
+                    }
+            },
+
+            "NurbsSurfaceProperties": {
+                    "!type": "fn(handle: ?) -> + adsk.core.NurbsSurfaceProperties",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NurbsSurfaceProperties"
+                    }
+            },
+
+            "ObjectCollection": {
+                    "create" : {
+                        "!type" : "fn() -> +adsk.core.ObjectCollection"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.ObjectCollection",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ObjectCollection"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Base"
+                        },
+                        "add" : {
+                            "!type" : "fn(item: +adsk.core.Base) -> boolean"
+                        },
+                        "removeByItem" : {
+                            "!type" : "fn(item: +adsk.core.Base) -> boolean"
+                        },
+                        "removeByIndex" : {
+                            "!type" : "fn(index: number) -> boolean"
+                        },
+                        "find" : {
+                            "!type" : "fn(item: +adsk.core.Base, startIndex: number) -> number"
+                        },
+                        "contains" : {
+                            "!type" : "fn(item: +adsk.core.Base) -> boolean"
+                        },
+                        "clear" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "OpenDocumentError": {
+                    "!type": "fn(handle: ?) -> + adsk.core.OpenDocumentError",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.OpenDocumentError"
+                    }
+            },
+
+            "Point2D": {
+                    "create" : {
+                        "!type" : "fn(x: number, y: number) -> +adsk.core.Point2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Point2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Point2D"
+                    },
+                    "prototype": {
+                        "x" : {
+                            "!type" : "number"
+                        },
+                        "y" : {
+                            "!type" : "number"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Point2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(x: object, y: object) -> boolean"
+                        },
+                        "distanceTo" : {
+                            "!type" : "fn(point: +adsk.core.Point2D) -> number"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(point: +adsk.core.Point2D) -> boolean"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(coordinates: [number]) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(x: number, y: number) -> boolean"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix2D) -> boolean"
+                        },
+                        "asVector" : {
+                            "!type" : "fn() -> +adsk.core.Vector2D"
+                        },
+                        "translateBy" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "vectorTo" : {
+                            "!type" : "fn(point: +adsk.core.Point2D) -> +adsk.core.Vector2D"
+                        }
+                    }
+            },
+
+            "Point3D": {
+                    "create" : {
+                        "!type" : "fn(x: number, y: number, z: number) -> +adsk.core.Point3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Point3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Point3D"
+                    },
+                    "prototype": {
+                        "x" : {
+                            "!type" : "number"
+                        },
+                        "y" : {
+                            "!type" : "number"
+                        },
+                        "z" : {
+                            "!type" : "number"
+                        },
+                        "distanceTo" : {
+                            "!type" : "fn(point: +adsk.core.Point3D) -> number"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Point3D"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(point: +adsk.core.Point3D) -> boolean"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(coordinates: [number]) -> boolean"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        },
+                        "asVector" : {
+                            "!type" : "fn() -> +adsk.core.Vector3D"
+                        },
+                        "translateBy" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "getData" : {
+                            "!type" : "fn(x: object, y: object, z: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(x: number, y: number, z: number) -> boolean"
+                        },
+                        "vectorTo" : {
+                            "!type" : "fn(point: +adsk.core.Point3D) -> +adsk.core.Vector3D"
+                        }
+                    }
+            },
+
+            "Preferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Preferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Preferences"
+                    },
+                    "prototype": {
+                        "generalPreferences" : {
+                            "!type" : "+adsk.core.GeneralPreferences"
+                        },
+                        "graphicsPreferences" : {
+                            "!type" : "+adsk.core.GraphicsPreferences"
+                        },
+                        "networkPreferences" : {
+                            "!type" : "+adsk.core.NetworkPreferences"
+                        },
+                        "unitAndValuePreferences" : {
+                            "!type" : "+adsk.core.UnitAndValuePreferences"
+                        },
+                        "defaultUnitsPreferences" : {
+                            "!type" : "+adsk.core.DefaultUnitsPreferencesCollection"
+                        },
+                        "productPreferences" : {
+                            "!type" : "+adsk.core.ProductPreferencesCollection"
+                        },
+                        "gridPreferences" : {
+                            "!type" : "+adsk.core.GridPreferences"
+                        },
+                        "productUsageData" : {
+                            "!type" : "+adsk.core.ProductUsageData"
+                        }
+                    }
+            },
+
+            "Product": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Product",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Product"
+                    },
+                    "prototype": {
+                        "parentDocument" : {
+                            "!type" : "+adsk.core.Document"
+                        },
+                        "unitsManager" : {
+                            "!type" : "+adsk.core.UnitsManager"
+                        },
+                        "workspaces" : {
+                            "!type" : "+adsk.core.WorkspaceList"
+                        },
+                        "materials" : {
+                            "!type" : "+adsk.core.Materials"
+                        },
+                        "appearances" : {
+                            "!type" : "+adsk.core.Appearances"
+                        }
+                    }
+            },
+
+            "ProductPreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ProductPreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ProductPreferences"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "ProductPreferencesCollection": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ProductPreferencesCollection",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ProductPreferencesCollection"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.ProductPreferences"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.ProductPreferences"
+                        }
+                    }
+            },
+
+            "Products": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Products",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Products"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Product"
+                        }
+                    }
+            },
+
+            "ProductUsageData": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ProductUsageData",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ProductUsageData"
+                    },
+                    "prototype": {
+                        "isTrackingToImproveSoftwareEnabled" : {
+                            "!type" : "boolean"
+                        },
+                        "isTrackingToImproveCommunicationEnabled" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "Properties": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Properties",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Properties"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Property"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Property"
+                        },
+                        "itemByName" : {
+                            "!type" : "fn(name: string) -> +adsk.core.Property"
+                        }
+                    }
+            },
+
+            "Property": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Property",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Property"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "isReadOnly" : {
+                            "!type" : "boolean"
+                        },
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "parent" : {
+                            "!type" : "+adsk.core.Base"
+                        }
+                    }
+            },
+
+            "Script": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Script",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Script"
+                    },
+                    "prototype": {
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "comments" : {
+                            "!type" : "string"
+                        },
+                        "run" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "Scripts": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Scripts",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Scripts"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Script"
+                        },
+                        "add" : {
+                            "!type" : "fn(name: string, comments: string, handler: function) -> +adsk.core.Script"
+                        }
+                    }
+            },
+
+            "Selection": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Selection",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Selection"
+                    },
+                    "prototype": {
+                        "object" : {
+                            "!type" : "+adsk.core.Base"
+                        },
+                        "point" : {
+                            "!type" : "+adsk.core.Point3D"
+                        }
+                    }
+            },
+
+            "SelectionDisplayStyles": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SelectionDisplayStyles",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SelectionDisplayStyles"
+                    }
+            },
+
+            "Selections": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Selections",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Selections"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "all" : {
+                            "!type" : "+adsk.core.ObjectCollection"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Selection"
+                        },
+                        "add" : {
+                            "!type" : "fn(entity: +adsk.core.Base) -> boolean"
+                        },
+                        "clear" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "removeBySelection" : {
+                            "!type" : "fn(selection: +adsk.core.Selection) -> boolean"
+                        },
+                        "removeByEntity" : {
+                            "!type" : "fn(entity: +adsk.core.Base) -> boolean"
+                        },
+                        "removeByIndex" : {
+                            "!type" : "fn(index: number) -> boolean"
+                        }
+                    }
+            },
+
+            "Surface": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Surface",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Surface"
+                    },
+                    "prototype": {
+                        "surfaceType" : {
+                            "!type" : "number"
+                        },
+                        "evaluator" : {
+                            "!type" : "+adsk.core.SurfaceEvaluator"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        }
+                    }
+            },
+
+            "SurfaceEvaluator": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SurfaceEvaluator",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SurfaceEvaluator"
+                    },
+                    "prototype": {
+                        "isClosedInU" : {
+                            "!type" : "boolean"
+                        },
+                        "isClosedInV" : {
+                            "!type" : "boolean"
+                        },
+                        "getModelCurveFromParametricCurve" : {
+                            "!type" : "fn(parametricCurve: +adsk.core.Curve2D) -> +adsk.core.ObjectCollection"
+                        },
+                        "getIsoCurve" : {
+                            "!type" : "fn(parameter: number, isUDirection: boolean) -> +adsk.core.ObjectCollection"
+                        },
+                        "getCurvatures" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], maxTangents: object, maxCurvatures: object, minCurvatures: object) -> boolean"
+                        },
+                        "getCurvature" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, maxTangent: object, maxCurvature: object, minCurvature: object) -> boolean"
+                        },
+                        "getNormalsAtParameters" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], normals: object) -> boolean"
+                        },
+                        "getNormalAtParameter" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, normal: object) -> boolean"
+                        },
+                        "getNormalsAtPoints" : {
+                            "!type" : "fn(points: [+adsk.core.Point3D], normals: object) -> boolean"
+                        },
+                        "getNormalAtPoint" : {
+                            "!type" : "fn(point: +adsk.core.Point3D, normal: object) -> boolean"
+                        },
+                        "getParametersAtPoints" : {
+                            "!type" : "fn(points: [+adsk.core.Point3D], parameters: object) -> boolean"
+                        },
+                        "getParameterAtPoint" : {
+                            "!type" : "fn(point: +adsk.core.Point3D, parameter: object) -> boolean"
+                        },
+                        "getPointsAtParameters" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], points: object) -> boolean"
+                        },
+                        "getPointAtParameter" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, point: object) -> boolean"
+                        },
+                        "getParamAnomaly" : {
+                            "!type" : "fn(periodicityU: object, periodicityV: object, singularitiesU: object, singularitiesV: object, unboundedParameters: object) -> boolean"
+                        },
+                        "getFirstDerivatives" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], partialsU: object, partialsV: object) -> boolean"
+                        },
+                        "getFirstDerivative" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, partialU: object, partialV: object) -> boolean"
+                        },
+                        "getSecondDerivatives" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], partialsUU: object, partialsUV: object, partialsVV: object) -> boolean"
+                        },
+                        "getSecondDerivative" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, partialUU: object, partialUV: object, partialVV: object) -> boolean"
+                        },
+                        "getThirdDerivatives" : {
+                            "!type" : "fn(parameters: [+adsk.core.Point2D], partialsUUU: object, partialsVVV: object) -> boolean"
+                        },
+                        "getThirdDerivative" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D, partialUUU: object, partialVVV: object) -> boolean"
+                        },
+                        "isParameterOnFace" : {
+                            "!type" : "fn(parameter: +adsk.core.Point2D) -> boolean"
+                        },
+                        "parametricRange" : {
+                            "!type" : "fn() -> +adsk.core.BoundingBox2D"
+                        }
+                    }
+            },
+
+            "SurfaceTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SurfaceTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SurfaceTypes"
+                    }
+            },
+
+            "TextureTypes": {
+                    "!type": "fn(handle: ?) -> + adsk.core.TextureTypes",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.TextureTypes"
+                    }
+            },
+
+            "Toolbar": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Toolbar",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Toolbar"
+                    },
+                    "prototype": {
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "parentUserInterface" : {
+                            "!type" : "+adsk.core.UserInterface"
+                        },
+                        "controls" : {
+                            "!type" : "+adsk.core.ToolbarControls"
+                        }
+                    }
+            },
+
+            "ToolbarControl": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ToolbarControl",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ToolbarControl"
+                    },
+                    "prototype": {
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "index" : {
+                            "!type" : "number"
+                        },
+                        "isVisible" : {
+                            "!type" : "boolean"
+                        },
+                        "parent" : {
+                            "!type" : "+adsk.core.Base"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "ToolbarControlList": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ToolbarControlList",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ToolbarControlList"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.ToolbarControl"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.ToolbarControl"
+                        }
+                    }
+            },
+
+            "ToolbarControls": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ToolbarControls",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ToolbarControls"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.ToolbarControl"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.ToolbarControl"
+                        },
+                        "addCommand" : {
+                            "!type" : "fn(commandDefinition: +adsk.core.CommandDefinition, id?: string, beforeIndex?: number) -> +adsk.core.CommandControl"
+                        },
+                        "addDropDown" : {
+                            "!type" : "fn(text: string, resourceFolder: string, id?: string, beforeIndex?: number) -> +adsk.core.DropDownControl"
+                        },
+                        "addSeparator" : {
+                            "!type" : "fn(beforeIndex?: number) -> +adsk.core.SeparatorControl"
+                        },
+                        "addSplitButton" : {
+                            "!type" : "fn(defaultDefinition: +adsk.core.CommandDefinition, additionalDefinitions: [+adsk.core.CommandDefinition], showLastUsed: boolean, id?: string, beforeIndex?: number) -> +adsk.core.SplitButtonControl"
+                        }
+                    }
+            },
+
+            "ToolbarPanel": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ToolbarPanel",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ToolbarPanel"
+                    },
+                    "prototype": {
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "index" : {
+                            "!type" : "number"
+                        },
+                        "isVisible" : {
+                            "!type" : "boolean"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "controls" : {
+                            "!type" : "+adsk.core.ToolbarControls"
+                        },
+                        "parentUserInterface" : {
+                            "!type" : "+adsk.core.UserInterface"
+                        },
+                        "promotedControls" : {
+                            "!type" : "+adsk.core.ToolbarControlList"
+                        },
+                        "relatedWorkspaces" : {
+                            "!type" : "+adsk.core.ObjectCollection"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "ToolbarPanels": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ToolbarPanels",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ToolbarPanels"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "add" : {
+                            "!type" : "fn(id: string, name: string, beforeIndex?: number) -> +adsk.core.ToolbarPanel"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.ToolbarPanel"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.ToolbarPanel"
+                        }
+                    }
+            },
+
+            "Toolbars": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Toolbars",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Toolbars"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Toolbar"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Toolbar"
+                        }
+                    }
+            },
+
+            "TransparencyDisplayEffects": {
+                    "!type": "fn(handle: ?) -> + adsk.core.TransparencyDisplayEffects",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.TransparencyDisplayEffects"
+                    }
+            },
+
+            "UnitAndValuePreferences": {
+                    "!type": "fn(handle: ?) -> + adsk.core.UnitAndValuePreferences",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.UnitAndValuePreferences"
+                    },
+                    "prototype": {
+                        "generalPrecision" : {
+                            "!type" : "number"
+                        },
+                        "angularPrecision" : {
+                            "!type" : "number"
+                        },
+                        "scientificNotationPrecision" : {
+                            "!type" : "number"
+                        },
+                        "footAndInchDisplayFormat" : {
+                            "!type" : "number"
+                        },
+                        "degreeDisplayFormat" : {
+                            "!type" : "number"
+                        },
+                        "isPeriodDecimalPoint" : {
+                            "!type" : "boolean"
+                        },
+                        "areAbbreviationsForUnitDisplayed" : {
+                            "!type" : "boolean"
+                        },
+                        "areSymbolsForUnitDisplayed" : {
+                            "!type" : "boolean"
+                        },
+                        "isScientificNotationUsed" : {
+                            "!type" : "boolean"
+                        },
+                        "useScientficNotationAbove" : {
+                            "!type" : "number"
+                        },
+                        "useScientficNotationBelow" : {
+                            "!type" : "number"
+                        },
+                        "areTrailingZerosHidden" : {
+                            "!type" : "boolean"
+                        },
+                        "mininimumPrecisionWhenHidingZeros" : {
+                            "!type" : "number"
+                        },
+                        "materialDisplayUnit" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "UnitsManager": {
+                    "!type": "fn(handle: ?) -> + adsk.core.UnitsManager",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.UnitsManager"
+                    },
+                    "prototype": {
+                        "product" : {
+                            "!type" : "+adsk.core.Product"
+                        },
+                        "internalUnits" : {
+                            "!type" : "string"
+                        },
+                        "defaultLength" : {
+                            "!type" : "string"
+                        },
+                        "defaultLengthUnits" : {
+                            "!type" : "string"
+                        },
+                        "evaluateExpression" : {
+                            "!type" : "fn(expression: string, units?: string) -> number"
+                        },
+                        "convert" : {
+                            "!type" : "fn(valueInInputUnits: number, inputUnits: string, outputUnits: string) -> number"
+                        },
+                        "formatInternalValue" : {
+                            "!type" : "fn(internalValue: number, displayUnits?: string, showUnits?: boolean) -> string"
+                        },
+                        "formatUnits" : {
+                            "!type" : "fn(units: string) -> string"
+                        },
+                        "standardizeExpression" : {
+                            "!type" : "fn(expression: string, units?: string) -> string"
+                        }
+                    }
+            },
+
+            "UserInterface": {
+                    "!type": "fn(handle: ?) -> + adsk.core.UserInterface",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.UserInterface"
+                    },
+                    "prototype": {
+                        "activeSelections" : {
+                            "!type" : "+adsk.core.Selections"
+                        },
+                        "activeWorkspace" : {
+                            "!type" : "+adsk.core.Workspace"
+                        },
+                        "commandDefinitions" : {
+                            "!type" : "+adsk.core.CommandDefinitions"
+                        },
+                        "toolbars" : {
+                            "!type" : "+adsk.core.Toolbars"
+                        },
+                        "workspaces" : {
+                            "!type" : "+adsk.core.Workspaces"
+                        },
+                        "toolbarPanels" : {
+                            "!type" : "+adsk.core.ToolbarPanels"
+                        },
+                        "messageBox" : {
+                            "!type" : "fn(text: string, title?: string, buttons?: number, icon?: number) -> number"
+                        },
+                        "inputBox" : {
+                            "!type" : "fn(prompt: string, cancelled: object, title?: string, defaultValue?: string) -> string"
+                        },
+                        "selectEntity" : {
+                            "!type" : "fn(prompt: string, filter: string) -> +adsk.core.Base"
+                        },
+                        "createFileDialog" : {
+                            "!type" : "fn() -> +adsk.core.FileDialog"
+                        },
+                        "workspacesByProduct" : {
+                            "!type" : "fn(product: +adsk.core.Product) -> +adsk.core.WorkspaceList"
+                        }
+                    }
+            },
+
+            "UserLanguages": {
+                    "!type": "fn(handle: ?) -> + adsk.core.UserLanguages",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.UserLanguages"
+                    }
+            },
+
+            "ValueInput": {
+                    "createByReal" : {
+                        "!type" : "fn(realValue: number) -> +adsk.core.ValueInput"
+                    },
+                    "createByString" : {
+                        "!type" : "fn(stringValue: string) -> +adsk.core.ValueInput"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.ValueInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ValueInput"
+                    },
+                    "prototype": {
+                        "realValue" : {
+                            "!type" : "number"
+                        },
+                        "stringValue" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "ValueInputError": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ValueInputError",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ValueInputError"
+                    }
+            },
+
+            "Vector2D": {
+                    "create" : {
+                        "!type" : "fn(x: number, y: number) -> +adsk.core.Vector2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Vector2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Vector2D"
+                    },
+                    "prototype": {
+                        "length" : {
+                            "!type" : "number"
+                        },
+                        "x" : {
+                            "!type" : "number"
+                        },
+                        "y" : {
+                            "!type" : "number"
+                        },
+                        "add" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "angleTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> number"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Vector2D"
+                        },
+                        "dotProduct" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> number"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "isParallelTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "isPerpendicularTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "normalize" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(coordinates: [number]) -> boolean"
+                        },
+                        "scaleBy" : {
+                            "!type" : "fn(scale: number) -> boolean"
+                        },
+                        "subtract" : {
+                            "!type" : "fn(vector: +adsk.core.Vector2D) -> boolean"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix2D) -> boolean"
+                        },
+                        "asPoint" : {
+                            "!type" : "fn() -> +adsk.core.Point2D"
+                        }
+                    }
+            },
+
+            "Vector3D": {
+                    "create" : {
+                        "!type" : "fn(x: number, y: number, z: number) -> +adsk.core.Vector3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Vector3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Vector3D"
+                    },
+                    "prototype": {
+                        "length" : {
+                            "!type" : "number"
+                        },
+                        "x" : {
+                            "!type" : "number"
+                        },
+                        "y" : {
+                            "!type" : "number"
+                        },
+                        "z" : {
+                            "!type" : "number"
+                        },
+                        "add" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "angleTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> number"
+                        },
+                        "asPoint" : {
+                            "!type" : "fn() -> +adsk.core.Point3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Vector3D"
+                        },
+                        "crossProduct" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> +adsk.core.Vector3D"
+                        },
+                        "dotProduct" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> number"
+                        },
+                        "asArray" : {
+                            "!type" : "fn() -> [number]"
+                        },
+                        "isEqualTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "isParallelTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "isPerpendicularTo" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "normalize" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "setWithArray" : {
+                            "!type" : "fn(coordinates: [number]) -> boolean"
+                        },
+                        "scaleBy" : {
+                            "!type" : "fn(scale: number) -> boolean"
+                        },
+                        "subtract" : {
+                            "!type" : "fn(vector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "transformBy" : {
+                            "!type" : "fn(matrix: +adsk.core.Matrix3D) -> boolean"
+                        }
+                    }
+            },
+
+            "VectorError": {
+                    "!type": "fn(handle: ?) -> + adsk.core.VectorError",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.VectorError"
+                    }
+            },
+
+            "ViewOrientations": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ViewOrientations",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ViewOrientations"
+                    }
+            },
+
+            "Viewport": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Viewport",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Viewport"
+                    },
+                    "prototype": {
+                        "camera" : {
+                            "!type" : "+adsk.core.Camera"
+                        },
+                        "height" : {
+                            "!type" : "number"
+                        },
+                        "width" : {
+                            "!type" : "number"
+                        },
+                        "isFullScreen" : {
+                            "!type" : "boolean"
+                        },
+                        "visualStyle" : {
+                            "!type" : "number"
+                        },
+                        "refresh" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "saveAsImageFile" : {
+                            "!type" : "fn(filename: string, width: number, height: number) -> boolean"
+                        },
+                        "fit" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "VisualStyles": {
+                    "!type": "fn(handle: ?) -> + adsk.core.VisualStyles",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.VisualStyles"
+                    }
+            },
+
+            "Workspace": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Workspace",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Workspace"
+                    },
+                    "prototype": {
+                        "id" : {
+                            "!type" : "string"
+                        },
+                        "isActive" : {
+                            "!type" : "boolean"
+                        },
+                        "isNative" : {
+                            "!type" : "boolean"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        },
+                        "toolbarPanels" : {
+                            "!type" : "+adsk.core.ToolbarPanels"
+                        },
+                        "resourceFolder" : {
+                            "!type" : "string"
+                        },
+                        "activate" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "deleteMe" : {
+                            "!type" : "fn() -> boolean"
+                        }
+                    }
+            },
+
+            "WorkspaceList": {
+                    "!type": "fn(handle: ?) -> + adsk.core.WorkspaceList",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.WorkspaceList"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Workspace"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Workspace"
+                        }
+                    }
+            },
+
+            "Workspaces": {
+                    "!type": "fn(handle: ?) -> + adsk.core.Workspaces",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Workspaces"
+                    },
+                    "prototype": {
+                        "count" : {
+                            "!type" : "number"
+                        },
+                        "item" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Workspace"
+                        },
+                        "itemById" : {
+                            "!type" : "fn(id: string) -> +adsk.core.Workspace"
+                        }
+                    }
+            },
+
+            "AppearanceTextureProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.AppearanceTextureProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.AppearanceTextureProperty"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "+adsk.core.AppearanceTexture"
+                        }
+                    }
+            },
+
+            "Arc2D": {
+                    "createByCenter" : {
+                        "!type" : "fn(center: +adsk.core.Point2D, radius: number, startAngle: number, endAngle: number, isClockwise: boolean) -> +adsk.core.Arc2D"
+                    },
+                    "createByThreePoints" : {
+                        "!type" : "fn(startPoint: +adsk.core.Point2D, point: +adsk.core.Point2D, endPoint: +adsk.core.Point2D) -> +adsk.core.Arc2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Arc2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Arc2D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "startAngle" : {
+                            "!type" : "number"
+                        },
+                        "endAngle" : {
+                            "!type" : "number"
+                        },
+                        "isClockwise" : {
+                            "!type" : "boolean"
+                        },
+                        "startPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "endPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve2D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Arc2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, radius: object, startAngle: object, endAngle: object, isClockwise: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point2D, radius: number, startAngle: number, endAngle: number, isClockwise: boolean) -> boolean"
+                        }
+                    }
+            },
+
+            "Arc3D": {
+                    "createByCenter" : {
+                        "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, referenceVector: +adsk.core.Vector3D, radius: number, startAngle: number, endAngle: number) -> +adsk.core.Arc3D"
+                    },
+                    "createByThreePoints" : {
+                        "!type" : "fn(pointOne: +adsk.core.Point3D, pointTwo: +adsk.core.Point3D, pointThree: +adsk.core.Point3D) -> +adsk.core.Arc3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Arc3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Arc3D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "normal" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "referenceVector" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "startAngle" : {
+                            "!type" : "number"
+                        },
+                        "endAngle" : {
+                            "!type" : "number"
+                        },
+                        "startPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "endPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve3D"
+                        },
+                        "setAxes" : {
+                            "!type" : "fn(normal: +adsk.core.Vector3D, referenceVector: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Arc3D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, normal: object, referenceVector: object, radius: object, startAngle: object, endAngle: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, referenceVector: +adsk.core.Vector3D, radius: number, startAngle: number, endAngle: number) -> boolean"
+                        }
+                    }
+            },
+
+            "BooleanProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.BooleanProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.BooleanProperty"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "BoolValueCommandInput": {
+                    "!type": "fn(handle: ?) -> + adsk.core.BoolValueCommandInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.BoolValueCommandInput"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "ButtonControlDefinition": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ButtonControlDefinition",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ButtonControlDefinition"
+                    }
+            },
+
+            "CheckBoxControlDefinition": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CheckBoxControlDefinition",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CheckBoxControlDefinition"
+                    },
+                    "prototype": {
+                        "isChecked" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "ChoiceProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ChoiceProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ChoiceProperty"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "string"
+                        },
+                        "getChoices" : {
+                            "!type" : "fn(names: object, choices: object) -> boolean"
+                        }
+                    }
+            },
+
+            "Circle2D": {
+                    "createByCenter" : {
+                        "!type" : "fn(center: +adsk.core.Point2D, radius: number) -> +adsk.core.Circle2D"
+                    },
+                    "createByThreePoints" : {
+                        "!type" : "fn(pointOne: +adsk.core.Point2D, pointTwo: +adsk.core.Point2D, pointThree: +adsk.core.Point2D) -> +adsk.core.Circle2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Circle2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Circle2D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve2D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Circle2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, radius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point2D, radius: number) -> boolean"
+                        }
+                    }
+            },
+
+            "Circle3D": {
+                    "createByCenter" : {
+                        "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, radius: number) -> +adsk.core.Circle3D"
+                    },
+                    "createByThreePoints" : {
+                        "!type" : "fn(pointOne: +adsk.core.Point3D, pointTwo: +adsk.core.Point3D, pointThree: +adsk.core.Point3D) -> +adsk.core.Circle3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Circle3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Circle3D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "normal" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Circle3D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, normal: object, radius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, radius: number) -> boolean"
+                        }
+                    }
+            },
+
+            "ColorProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ColorProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ColorProperty"
+                    },
+                    "prototype": {
+                        "connectedTexture" : {
+                            "!type" : "+adsk.core.AppearanceTexture"
+                        },
+                        "hasConnectedTexture" : {
+                            "!type" : "boolean"
+                        },
+                        "hasMultipleValues" : {
+                            "!type" : "boolean"
+                        },
+                        "value" : {
+                            "!type" : "+adsk.core.Color"
+                        },
+                        "values" : {
+                            "!type" : "[+adsk.core.Color]"
+                        }
+                    }
+            },
+
+            "CommandControl": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandControl",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandControl"
+                    },
+                    "prototype": {
+                        "commandDefinition" : {
+                            "!type" : "+adsk.core.CommandDefinition"
+                        },
+                        "isPromoted" : {
+                            "!type" : "boolean"
+                        },
+                        "isPromotedByDefault" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "CommandCreatedEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandCreatedEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandCreatedEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "CommandCreatedEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandCreatedEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandCreatedEventArgs"
+                    },
+                    "prototype": {
+                        "command" : {
+                            "!type" : "+adsk.core.Command"
+                        }
+                    }
+            },
+
+            "CommandEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "CommandEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.CommandEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.CommandEventArgs"
+                    },
+                    "prototype": {
+                        "command" : {
+                            "!type" : "+adsk.core.Command"
+                        },
+                        "executeFailed" : {
+                            "!type" : "boolean"
+                        },
+                        "executeFailedMessage" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "Cone": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, radius: number, halfAngle: number) -> +adsk.core.Cone"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Cone",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Cone"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "axis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "halfAngle" : {
+                            "!type" : "number"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, axis: object, radius: object, halfAngle: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, radius: number, halfAngle: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Cone"
+                        }
+                    }
+            },
+
+            "Cylinder": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, radius: number) -> +adsk.core.Cylinder"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Cylinder",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Cylinder"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "axis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, axis: object, radius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, radius: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Cylinder"
+                        }
+                    }
+            },
+
+            "DocumentEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DocumentEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DocumentEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "DocumentEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DocumentEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DocumentEventArgs"
+                    },
+                    "prototype": {
+                        "document" : {
+                            "!type" : "+adsk.core.Document"
+                        },
+                        "fullPath" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "DropDownControl": {
+                    "!type": "fn(handle: ?) -> + adsk.core.DropDownControl",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.DropDownControl"
+                    },
+                    "prototype": {
+                        "controls" : {
+                            "!type" : "+adsk.core.ToolbarControls"
+                        },
+                        "resourceFolder" : {
+                            "!type" : "string"
+                        },
+                        "name" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "Ellipse2D": {
+                    "create" : {
+                        "!type" : "fn(center: +adsk.core.Point2D, majorAxis: +adsk.core.Vector2D, majorRadius: number, minorRadius: number) -> +adsk.core.Ellipse2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Ellipse2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Ellipse2D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "majorAxis" : {
+                            "!type" : "+adsk.core.Vector2D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve2D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Ellipse2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, majorAxis: object, majorRadius: object, minorRadius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point2D, majorAxis: +adsk.core.Vector2D, majorRadius: number, minorRadius: number) -> boolean"
+                        }
+                    }
+            },
+
+            "Ellipse3D": {
+                    "create" : {
+                        "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> +adsk.core.Ellipse3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Ellipse3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Ellipse3D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "normal" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorAxis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Ellipse3D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, normal: object, majorAxis: object, majorRadius: object, minorRadius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> boolean"
+                        }
+                    }
+            },
+
+            "EllipticalArc2D": {
+                    "create" : {
+                        "!type" : "fn(center: +adsk.core.Point2D, majorAxis: +adsk.core.Vector2D, majorRadius: number, minorRadius: number, startAngle: number, endAngle: number) -> +adsk.core.EllipticalArc2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.EllipticalArc2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.EllipticalArc2D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "majorAxis" : {
+                            "!type" : "+adsk.core.Vector2D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "startAngle" : {
+                            "!type" : "number"
+                        },
+                        "endAngle" : {
+                            "!type" : "number"
+                        },
+                        "isClockwise" : {
+                            "!type" : "boolean"
+                        },
+                        "isCircular" : {
+                            "!type" : "boolean"
+                        },
+                        "startPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "endPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve2D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.EllipticalArc2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, majorAxis: object, majorRadius: object, minorRadius: object, startAngle: object, endAngle: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point2D, majorAxis: +adsk.core.Vector2D, majorRadius: number, minorRadius: number, startAngle: number, endAngle: number) -> boolean"
+                        }
+                    }
+            },
+
+            "EllipticalArc3D": {
+                    "create" : {
+                        "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number, startAngle: number, endAngle: number) -> +adsk.core.EllipticalArc3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.EllipticalArc3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.EllipticalArc3D"
+                    },
+                    "prototype": {
+                        "center" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "normal" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorAxis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "startAngle" : {
+                            "!type" : "number"
+                        },
+                        "endAngle" : {
+                            "!type" : "number"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.EllipticalArc3D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(center: object, normal: object, majorAxis: object, majorRadius: object, minorRadius: object, startAngle: object, endAngle: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(center: +adsk.core.Point3D, normal: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number, startAngle: number, endAngle: number) -> boolean"
+                        }
+                    }
+            },
+
+            "EllipticalCone": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorAxisDirection: +adsk.core.Vector3D, majorRadius: number, minorRadius: number, halfAngle: number) -> +adsk.core.EllipticalCone"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.EllipticalCone",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.EllipticalCone"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "halfAngle" : {
+                            "!type" : "number"
+                        },
+                        "getAxes" : {
+                            "!type" : "fn(axis: object, majorAxisDirection: object)"
+                        },
+                        "setAxes" : {
+                            "!type" : "fn(axis: +adsk.core.Vector3D, majorAxisDirection: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, axis: object, majorAxisDirection: object, majorRadius: object, minorRadius: object, halfAngle: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorAxisDirection: +adsk.core.Vector3D, majorRadius: number, minorRadius: number, halfAngle: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.EllipticalCone"
+                        }
+                    }
+            },
+
+            "EllipticalCylinder": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> +adsk.core.EllipticalCylinder"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.EllipticalCylinder",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.EllipticalCylinder"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "axis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorAxis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, axis: object, majorAxis: object, majorRadius: object, minorRadius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorAxis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.EllipticalCylinder"
+                        }
+                    }
+            },
+
+            "FilenameProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FilenameProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FilenameProperty"
+                    },
+                    "prototype": {
+                        "hasMultipleValues" : {
+                            "!type" : "boolean"
+                        },
+                        "value" : {
+                            "!type" : "string"
+                        },
+                        "values" : {
+                            "!type" : "[string]"
+                        }
+                    }
+            },
+
+            "FloatProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.FloatProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.FloatProperty"
+                    },
+                    "prototype": {
+                        "hasConnectedTexture" : {
+                            "!type" : "boolean"
+                        },
+                        "connectedTexture" : {
+                            "!type" : "+adsk.core.AppearanceTexture"
+                        },
+                        "hasLimits" : {
+                            "!type" : "boolean"
+                        },
+                        "hasMultipleValues" : {
+                            "!type" : "boolean"
+                        },
+                        "isPercentage" : {
+                            "!type" : "boolean"
+                        },
+                        "units" : {
+                            "!type" : "string"
+                        },
+                        "value" : {
+                            "!type" : "number"
+                        },
+                        "values" : {
+                            "!type" : "[number]"
+                        },
+                        "getLimits" : {
+                            "!type" : "fn(hasLowLimit: object, lowLimit: object, hasHighLimit: object, highLimit: object) -> boolean"
+                        }
+                    }
+            },
+
+            "InfiniteLine3D": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, direction: +adsk.core.Vector3D) -> +adsk.core.InfiniteLine3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.InfiniteLine3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.InfiniteLine3D"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "direction" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "isColinearTo" : {
+                            "!type" : "fn(line: +adsk.core.InfiniteLine3D) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.InfiniteLine3D"
+                        },
+                        "intersectWithCurve" : {
+                            "!type" : "fn(curve: +adsk.core.Curve3D) -> +adsk.core.ObjectCollection"
+                        },
+                        "intersectWithSurface" : {
+                            "!type" : "fn(surface: +adsk.core.Surface) -> +adsk.core.ObjectCollection"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, direction: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, direction: +adsk.core.Vector3D) -> boolean"
+                        }
+                    }
+            },
+
+            "InputChangedEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.InputChangedEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.InputChangedEvent"
+                    },
+                    "prototype": {
+                        "add" : {
+                            "!type" : "fn(handler: function) -> boolean"
+                        },
+                        "remove" : {
+                            "!type" : "fn(handler: function) -> boolean"
+                        }
+                    }
+            },
+
+            "InputChangedEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.InputChangedEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.InputChangedEventArgs"
+                    },
+                    "prototype": {
+                        "input" : {
+                            "!type" : "+adsk.core.CommandInput"
+                        }
+                    }
+            },
+
+            "IntegerProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.IntegerProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.IntegerProperty"
+                    },
+                    "prototype": {
+                        "hasLimits" : {
+                            "!type" : "boolean"
+                        },
+                        "hasMultipleValues" : {
+                            "!type" : "boolean"
+                        },
+                        "value" : {
+                            "!type" : "number"
+                        },
+                        "values" : {
+                            "!type" : "[number]"
+                        },
+                        "getLimits" : {
+                            "!type" : "fn(hasLowLimit: object, lowLimit: object, hasHighLimit: object, highLimit: object) -> boolean"
+                        }
+                    }
+            },
+
+            "KeyboardEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.KeyboardEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.KeyboardEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "KeyboardEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.KeyboardEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.KeyboardEventArgs"
+                    },
+                    "prototype": {
+                        "modifierMask" : {
+                            "!type" : "number"
+                        },
+                        "keyCode" : {
+                            "!type" : "number"
+                        }
+                    }
+            },
+
+            "Line2D": {
+                    "create" : {
+                        "!type" : "fn(startPoint: +adsk.core.Point2D, endPoint: +adsk.core.Point2D) -> +adsk.core.Line2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Line2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Line2D"
+                    },
+                    "prototype": {
+                        "startPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "endPoint" : {
+                            "!type" : "+adsk.core.Point2D"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve2D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Line2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(startPoint: object, endPoint: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(startPoint: +adsk.core.Point2D, endPoint: +adsk.core.Point2D) -> boolean"
+                        }
+                    }
+            },
+
+            "Line3D": {
+                    "create" : {
+                        "!type" : "fn(startPoint: +adsk.core.Point3D, endPoint: +adsk.core.Point3D) -> +adsk.core.Line3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Line3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Line3D"
+                    },
+                    "prototype": {
+                        "startPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "endPoint" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "asNurbsCurve" : {
+                            "!type" : "+adsk.core.NurbsCurve3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Line3D"
+                        },
+                        "asInfiniteLine" : {
+                            "!type" : "fn() -> +adsk.core.InfiniteLine3D"
+                        },
+                        "isColinearTo" : {
+                            "!type" : "fn(line: +adsk.core.Line3D) -> boolean"
+                        },
+                        "intersectWithCurve" : {
+                            "!type" : "fn(curve: +adsk.core.Curve3D) -> +adsk.core.ObjectCollection"
+                        },
+                        "intersectWithSurface" : {
+                            "!type" : "fn(surface: +adsk.core.Surface) -> +adsk.core.ObjectCollection"
+                        },
+                        "getData" : {
+                            "!type" : "fn(startPoint: object, endPoint: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(startPoint: +adsk.core.Point3D, endPoint: +adsk.core.Point3D) -> boolean"
+                        }
+                    }
+            },
+
+            "ListControlDefinition": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ListControlDefinition",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ListControlDefinition"
+                    },
+                    "prototype": {
+                        "listControlItems" : {
+                            "!type" : "+adsk.core.ListControlItems"
+                        },
+                        "listControlDisplayType" : {
+                            "!type" : "number"
+                        },
+                        "lastSelected" : {
+                            "!type" : "+adsk.core.ListControlItem"
+                        }
+                    }
+            },
+
+            "MouseEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MouseEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MouseEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "MouseEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.MouseEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.MouseEventArgs"
+                    },
+                    "prototype": {
+                        "button" : {
+                            "!type" : "number"
+                        },
+                        "clicks" : {
+                            "!type" : "number"
+                        },
+                        "wheelDelta" : {
+                            "!type" : "number"
+                        },
+                        "keyboardModifiers" : {
+                            "!type" : "number"
+                        },
+                        "position" : {
+                            "!type" : "+adsk.core.Point2D"
+                        }
+                    }
+            },
+
+            "NurbsCurve2D": {
+                    "createNonRational" : {
+                        "!type" : "fn(controlPoints: [+adsk.core.Point2D], degree: number, knots: [number], isPeriodic: boolean) -> +adsk.core.NurbsCurve2D"
+                    },
+                    "createRational" : {
+                        "!type" : "fn(controlPoints: [+adsk.core.Point2D], degree: number, knots: [number], weights: [number], isPeriodic: boolean) -> +adsk.core.NurbsCurve2D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.NurbsCurve2D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NurbsCurve2D"
+                    },
+                    "prototype": {
+                        "controlPointCount" : {
+                            "!type" : "number"
+                        },
+                        "degree" : {
+                            "!type" : "number"
+                        },
+                        "knotCount" : {
+                            "!type" : "number"
+                        },
+                        "isRational" : {
+                            "!type" : "boolean"
+                        },
+                        "isClosed" : {
+                            "!type" : "boolean"
+                        },
+                        "isPeriodic" : {
+                            "!type" : "boolean"
+                        },
+                        "controlPoints" : {
+                            "!type" : "[+adsk.core.Point2D]"
+                        },
+                        "knots" : {
+                            "!type" : "[number]"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.NurbsCurve2D"
+                        },
+                        "getData" : {
+                            "!type" : "fn(controlPoints: object, degree: object, knots: object, isRational: object, weights: object, isPeriodic: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(controlPoints: [+adsk.core.Point2D], degree: number, knots: [number], isRational: boolean, weights: [number], isPeriodic: boolean) -> boolean"
+                        },
+                        "extract" : {
+                            "!type" : "fn(startParam: number, endParam: number) -> +adsk.core.NurbsCurve2D"
+                        },
+                        "merge" : {
+                            "!type" : "fn(nurbsCurve: +adsk.core.NurbsCurve2D) -> +adsk.core.NurbsCurve2D"
+                        }
+                    }
+            },
+
+            "NurbsCurve3D": {
+                    "createNonRational" : {
+                        "!type" : "fn(controlPoints: [+adsk.core.Point3D], degree: number, knots: [number], isPeriodic: boolean) -> +adsk.core.NurbsCurve3D"
+                    },
+                    "createRational" : {
+                        "!type" : "fn(controlPoints: [+adsk.core.Point3D], degree: number, knots: [number], weights: [number], isPeriodic: boolean) -> +adsk.core.NurbsCurve3D"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.NurbsCurve3D",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NurbsCurve3D"
+                    },
+                    "prototype": {
+                        "controlPointCount" : {
+                            "!type" : "number"
+                        },
+                        "degree" : {
+                            "!type" : "number"
+                        },
+                        "knotCount" : {
+                            "!type" : "number"
+                        },
+                        "isRational" : {
+                            "!type" : "boolean"
+                        },
+                        "isClosed" : {
+                            "!type" : "boolean"
+                        },
+                        "isPeriodic" : {
+                            "!type" : "boolean"
+                        },
+                        "controlPoints" : {
+                            "!type" : "[+adsk.core.Point3D]"
+                        },
+                        "knots" : {
+                            "!type" : "[number]"
+                        },
+                        "getData" : {
+                            "!type" : "fn(controlPoints: object, degree: object, knots: object, isRational: object, weights: object, isPeriodic: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(controlPoints: [+adsk.core.Point3D], degree: number, knots: [number], isRational: boolean, weights: [number], isPeriodic: boolean) -> boolean"
+                        },
+                        "extract" : {
+                            "!type" : "fn(startParam: number, endParam: number) -> +adsk.core.NurbsCurve3D"
+                        },
+                        "merge" : {
+                            "!type" : "fn(nurbsCurve: +adsk.core.NurbsCurve3D) -> +adsk.core.NurbsCurve3D"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.NurbsCurve3D"
+                        }
+                    }
+            },
+
+            "NurbsSurface": {
+                    "create" : {
+                        "!type" : "fn(degreeU: number, degreeV: number, controlPointCountU: number, controlPointCountV: number, controlPoints: [+adsk.core.Point3D], knotsU: [number], knotsV: [number], weights: [number], propertiesU: number, propertiesV: number) -> +adsk.core.NurbsSurface"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.NurbsSurface",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.NurbsSurface"
+                    },
+                    "prototype": {
+                        "controlPointCountU" : {
+                            "!type" : "number"
+                        },
+                        "controlPointCountV" : {
+                            "!type" : "number"
+                        },
+                        "degreeU" : {
+                            "!type" : "number"
+                        },
+                        "degreeV" : {
+                            "!type" : "number"
+                        },
+                        "knotCountU" : {
+                            "!type" : "number"
+                        },
+                        "knotCountV" : {
+                            "!type" : "number"
+                        },
+                        "propertiesU" : {
+                            "!type" : "number"
+                        },
+                        "propertiesV" : {
+                            "!type" : "number"
+                        },
+                        "controlPoints" : {
+                            "!type" : "[+adsk.core.Point3D]"
+                        },
+                        "knotsU" : {
+                            "!type" : "[number]"
+                        },
+                        "knotsV" : {
+                            "!type" : "[number]"
+                        },
+                        "getData" : {
+                            "!type" : "fn(degreeU: object, degreeV: object, controlPointCountU: object, controlPointCountV: object, controlPoints: object, knotsU: object, knotsV: object, weights: object, propertiesU: object, propertiesV: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(degreeU: number, degreeV: number, controlPointCountU: number, controlPointCountV: number, controlPoints: [+adsk.core.Point3D], knotsU: [number], knotsV: [number], weights: [number], propertiesU: number, propertiesV: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.NurbsSurface"
+                        }
+                    }
+            },
+
+            "Plane": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, normal: +adsk.core.Vector3D) -> +adsk.core.Plane"
+                    },
+                    "createUsingDirections" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, uDirection: +adsk.core.Vector3D, vDirection: +adsk.core.Vector3D) -> +adsk.core.Plane"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Plane",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Plane"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "normal" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "uDirection" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "vDirection" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "setUVDirections" : {
+                            "!type" : "fn(uDirection: +adsk.core.Vector3D, vDirection: +adsk.core.Vector3D) -> boolean"
+                        },
+                        "isParallelToPlane" : {
+                            "!type" : "fn(plane: +adsk.core.Plane) -> boolean"
+                        },
+                        "isParallelToLine" : {
+                            "!type" : "fn(line: +adsk.core.Line3D) -> boolean"
+                        },
+                        "isPerpendicularToPlane" : {
+                            "!type" : "fn(plane: +adsk.core.Plane) -> boolean"
+                        },
+                        "isPerpendicularToLine" : {
+                            "!type" : "fn(line: +adsk.core.Line3D) -> boolean"
+                        },
+                        "isCoPlanarTo" : {
+                            "!type" : "fn(plane: +adsk.core.Plane) -> boolean"
+                        },
+                        "intersectWithPlane" : {
+                            "!type" : "fn(plane: +adsk.core.Plane) -> +adsk.core.InfiniteLine3D"
+                        },
+                        "intersectWithLine" : {
+                            "!type" : "fn(line: +adsk.core.InfiniteLine3D) -> +adsk.core.Point3D"
+                        },
+                        "intersectWithCurve" : {
+                            "!type" : "fn(curve: +adsk.core.Curve3D) -> +adsk.core.ObjectCollection"
+                        },
+                        "intersectWithSurface" : {
+                            "!type" : "fn(surface: +adsk.core.Surface) -> +adsk.core.ObjectCollection"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Plane"
+                        }
+                    }
+            },
+
+            "SelectionCommandInput": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SelectionCommandInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SelectionCommandInput"
+                    },
+                    "prototype": {
+                        "commandPrompt" : {
+                            "!type" : "string"
+                        },
+                        "selectionFilters" : {
+                            "!type" : "[string]"
+                        },
+                        "selectionCount" : {
+                            "!type" : "number"
+                        },
+                        "addSelectionFilter" : {
+                            "!type" : "fn(filter: string) -> boolean"
+                        },
+                        "clearSelectionFilter" : {
+                            "!type" : "fn() -> boolean"
+                        },
+                        "selection" : {
+                            "!type" : "fn(index: number) -> +adsk.core.Selection"
+                        },
+                        "addSelection" : {
+                            "!type" : "fn(selection: +adsk.core.Base) -> boolean"
+                        },
+                        "getSelectionLimits" : {
+                            "!type" : "fn(minimum: object, maximum: object) -> boolean"
+                        },
+                        "setSelectionLimits" : {
+                            "!type" : "fn(minimum: number, maximum?: number) -> boolean"
+                        }
+                    }
+            },
+
+            "SelectionEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SelectionEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SelectionEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "SelectionEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SelectionEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SelectionEventArgs"
+                    },
+                    "prototype": {
+                        "selection" : {
+                            "!type" : "+adsk.core.Selection"
+                        },
+                        "isSelectable" : {
+                            "!type" : "boolean"
+                        },
+                        "additionalEntities" : {
+                            "!type" : "+adsk.core.ObjectCollection"
+                        }
+                    }
+            },
+
+            "SeparatorControl": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SeparatorControl",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SeparatorControl"
+                    }
+            },
+
+            "Sphere": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, radius: number) -> +adsk.core.Sphere"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Sphere",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Sphere"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "radius" : {
+                            "!type" : "number"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, radius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, radius: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Sphere"
+                        }
+                    }
+            },
+
+            "SplitButtonControl": {
+                    "!type": "fn(handle: ?) -> + adsk.core.SplitButtonControl",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.SplitButtonControl"
+                    },
+                    "prototype": {
+                        "defaultCommandDefinition" : {
+                            "!type" : "+adsk.core.CommandDefinition"
+                        },
+                        "isLastUsedShown" : {
+                            "!type" : "boolean"
+                        },
+                        "additionalDefinitions" : {
+                            "!type" : "[+adsk.core.CommandDefinition]"
+                        }
+                    }
+            },
+
+            "StringProperty": {
+                    "!type": "fn(handle: ?) -> + adsk.core.StringProperty",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.StringProperty"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "StringValueCommandInput": {
+                    "!type": "fn(handle: ?) -> + adsk.core.StringValueCommandInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.StringValueCommandInput"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "string"
+                        }
+                    }
+            },
+
+            "Torus": {
+                    "create" : {
+                        "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> +adsk.core.Torus"
+                    },
+                    "!type": "fn(handle: ?) -> + adsk.core.Torus",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.Torus"
+                    },
+                    "prototype": {
+                        "origin" : {
+                            "!type" : "+adsk.core.Point3D"
+                        },
+                        "axis" : {
+                            "!type" : "+adsk.core.Vector3D"
+                        },
+                        "majorRadius" : {
+                            "!type" : "number"
+                        },
+                        "minorRadius" : {
+                            "!type" : "number"
+                        },
+                        "getData" : {
+                            "!type" : "fn(origin: object, axis: object, majorRadius: object, minorRadius: object) -> boolean"
+                        },
+                        "set" : {
+                            "!type" : "fn(origin: +adsk.core.Point3D, axis: +adsk.core.Vector3D, majorRadius: number, minorRadius: number) -> boolean"
+                        },
+                        "copy" : {
+                            "!type" : "fn() -> +adsk.core.Torus"
+                        }
+                    }
+            },
+
+            "ValidateInputsEvent": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ValidateInputsEvent",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ValidateInputsEvent"
+                    },
+                    "prototype": {
+                    }
+            },
+
+            "ValidateInputsEventArgs": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ValidateInputsEventArgs",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ValidateInputsEventArgs"
+                    },
+                    "prototype": {
+                        "areInputsValid" : {
+                            "!type" : "boolean"
+                        }
+                    }
+            },
+
+            "ValueCommandInput": {
+                    "!type": "fn(handle: ?) -> + adsk.core.ValueCommandInput",
+                    "interfaceId": {
+                        "!type": "string"
+                    },
+                    "cast": {
+                        "!type": "fn(object: ?) -> +adsk.core.ValueCommandInput"
+                    },
+                    "prototype": {
+                        "value" : {
+                            "!type" : "number"
+                        },
+                        "expression" : {
+                            "!type" : "string"
+                        },
+                        "unitType" : {
+                            "!type" : "string"
+                        }
+                    }
+            }
+        }
+    }
+}
